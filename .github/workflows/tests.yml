@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: sudo apt-get install libsdl2-dev
     - name: Tests
       run: cargo test --verbose
