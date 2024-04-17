@@ -1,2 +1,5 @@
 # The default cargo build directory.
 /target
+
+# The Windows version of the SDL2 dynamic link libraries.
+SDL2.dll
