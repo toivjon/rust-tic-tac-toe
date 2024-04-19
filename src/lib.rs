@@ -1,3 +1,4 @@
+/// The base structure for the whole game application.
 pub struct Game {
     pub running: bool,
 }
