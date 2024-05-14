@@ -1,4 +1,4 @@
-use rust_tic_tac_toe::Game;
+use rust_tic_tac_toe::game::Game;
 use sdl2::event::Event;
 
 fn main() -> Result<(), String> {
