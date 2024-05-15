@@ -16,8 +16,12 @@ fn main() -> Result<(), String> {
         for event in event_pump.poll_iter() {
             match event {
                 Event::Quit { .. } => game.push_event(event::Event::Quit),
-                Event::MouseButtonDown { .. } => game.push_event(event::Event::MouseButtonDown),
-                Event::MouseButtonUp { .. } => game.push_event(event::Event::MouseButtonUp),
+                Event::MouseButtonDown { mouse_btn, .. } => {
+                    game.push_event(event::Event::MouseButtonDown(mouse_btn))
+                }
+                Event::MouseButtonUp { mouse_btn, .. } => {
+                    game.push_event(event::Event::MouseButtonUp(mouse_btn))
+                }
                 _ => {}
             }
         }

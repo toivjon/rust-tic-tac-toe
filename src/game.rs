@@ -22,11 +22,13 @@ impl Game {
 
     /// Proceed with the application logic.
     pub fn tick(&mut self) {
-        for event in self.events.iter() {
+        let events = self.events.clone();
+        self.events.clear();
+        for event in events {
             match event {
                 Event::Quit { .. } => self.running = false,
-                Event::MouseButtonDown { .. } => {}
-                Event::MouseButtonUp { .. } => {}
+                Event::MouseButtonDown(btn) => println!("{:?}", btn),
+                Event::MouseButtonUp(btn) => println!("{:?}", btn),
             }
         }
     }
