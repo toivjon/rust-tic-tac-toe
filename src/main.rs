@@ -1,4 +1,4 @@
-use rust_tic_tac_toe::game::Game;
+use rust_tic_tac_toe::{event, game::Game};
 use sdl2::event::Event;
 
 fn main() -> Result<(), String> {
@@ -15,13 +15,13 @@ fn main() -> Result<(), String> {
         // Acquire events from the operating system.
         for event in event_pump.poll_iter() {
             match event {
-                Event::Quit { .. } => game.running = false,
-                Event::MouseButtonDown { .. } => (),
-                Event::MouseButtonUp { .. } => (),
+                Event::Quit { .. } => game.push_event(event::Event::Quit),
+                Event::MouseButtonDown { .. } => game.push_event(event::Event::MouseButtonDown),
+                Event::MouseButtonUp { .. } => game.push_event(event::Event::MouseButtonUp),
                 _ => {}
             }
         }
+        game.tick();
     }
-
     Ok(())
 }
