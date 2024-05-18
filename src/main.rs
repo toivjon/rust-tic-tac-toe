@@ -25,6 +25,7 @@ fn main() -> Result<(), String> {
                 _ => {}
             }
         }
+        game.push_event(event::Event::Update);
         game.tick();
     }
     Ok(())

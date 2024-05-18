@@ -27,8 +27,9 @@ impl Game {
         for event in events {
             match event {
                 Event::Quit { .. } => self.running = false,
-                Event::MouseButtonDown(btn) => println!("{:?}", btn),
-                Event::MouseButtonUp(btn) => println!("{:?}", btn),
+                Event::MouseButtonDown(btn) => println!("Mouse button {:?} down", btn),
+                Event::MouseButtonUp(btn) => println!("Mouse button {:?} up", btn),
+                Event::Update => (),
             }
         }
     }
