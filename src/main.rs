@@ -4,6 +4,7 @@ use sdl2::{event::Event, pixels, rect::Rect};
 fn main() -> Result<(), String> {
     let sdl = sdl2::init()?;
     let video = sdl.video()?;
+    sdl.mouse().show_cursor(false);
     let window = video
         .window("Tic-Tac-Toe", 800, 600)
         .build()
@@ -33,6 +34,8 @@ fn main() -> Result<(), String> {
         canvas.clear();
         canvas.set_draw_color(pixels::Color::RGB(255, 0, 0));
         canvas.draw_rect(Rect::new(100, 100, 100, 100))?;
+        canvas.set_draw_color(pixels::Color::GREEN);
+        canvas.draw_point(game.cursor)?;
         canvas.present()
     }
     Ok(())

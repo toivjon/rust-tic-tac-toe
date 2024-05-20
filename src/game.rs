@@ -4,6 +4,7 @@ use crate::event::Event;
 pub struct Game {
     pub running: bool,
     pub events: Vec<Event>,
+    pub cursor: (i32, i32),
 }
 
 impl Game {
@@ -12,6 +13,7 @@ impl Game {
         Game {
             running: true,
             events: vec![],
+            cursor: (0, 0),
         }
     }
 
@@ -29,7 +31,7 @@ impl Game {
                 Event::Quit { .. } => self.running = false,
                 Event::MouseButtonDown(btn) => println!("Mouse button {:?} down", btn),
                 Event::MouseButtonUp(btn) => println!("Mouse button {:?} up", btn),
-                Event::MouseMotion(x, y) => println!("Mouse motion x:{:?} y:{:?}", x, y),
+                Event::MouseMotion(x, y) => self.cursor = (x, y),
             }
         }
     }
