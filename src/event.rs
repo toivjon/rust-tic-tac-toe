@@ -10,6 +10,4 @@ pub enum Event {
     MouseButtonUp(MouseButton),
     /// A mouse has been moved.
     MouseMotion(i32, i32),
-    /// The game simulation should be updated.
-    Update,
 }

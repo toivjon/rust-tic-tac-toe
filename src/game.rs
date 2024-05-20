@@ -30,7 +30,6 @@ impl Game {
                 Event::MouseButtonDown(btn) => println!("Mouse button {:?} down", btn),
                 Event::MouseButtonUp(btn) => println!("Mouse button {:?} up", btn),
                 Event::MouseMotion(x, y) => println!("Mouse motion x:{:?} y:{:?}", x, y),
-                Event::Update => (),
             }
         }
     }

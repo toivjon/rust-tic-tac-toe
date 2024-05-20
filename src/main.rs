@@ -27,7 +27,6 @@ fn main() -> Result<(), String> {
                 _ => {}
             }
         }
-        game.push_event(event::Event::Update);
         game.tick();
 
         canvas.set_draw_color(pixels::Color::RGB(0, 0, 0));
