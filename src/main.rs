@@ -23,6 +23,7 @@ fn main() -> Result<(), String> {
                 Event::MouseButtonUp { mouse_btn, .. } => {
                     game.push_event(event::Event::MouseButtonUp(mouse_btn))
                 }
+                Event::MouseMotion { x, y, .. } => game.push_event(event::Event::MouseMotion(x, y)),
                 _ => {}
             }
         }

@@ -8,6 +8,8 @@ pub enum Event {
     MouseButtonDown(MouseButton),
     /// A mouse button has been released.
     MouseButtonUp(MouseButton),
+    /// A mouse has been moved.
+    MouseMotion(i32, i32),
     /// The game simulation should be updated.
     Update,
 }
