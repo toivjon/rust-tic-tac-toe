@@ -30,12 +30,28 @@ fn main() -> Result<(), String> {
         }
         game.tick();
 
-        canvas.set_draw_color(pixels::Color::RGB(0, 0, 0));
+        // Clear the screen with black color.
+        canvas.set_draw_color(pixels::Color::BLACK);
         canvas.clear();
-        canvas.set_draw_color(pixels::Color::RGB(255, 0, 0));
-        canvas.draw_rect(Rect::new(100, 100, 100, 100))?;
+
+        // Draw the grid background.
+        canvas.set_draw_color(pixels::Color::RGB(255, 255, 255));
+        canvas.draw_rects(&vec![
+            game.cell_nw,
+            game.cell_nm,
+            game.cell_ne,
+            game.cell_mw,
+            game.cell_mm,
+            game.cell_me,
+            game.cell_sw,
+            game.cell_sm,
+            game.cell_se,
+        ])?;
+
+        // Draw the cursor.
         canvas.set_draw_color(pixels::Color::GREEN);
         canvas.draw_point(game.cursor)?;
+
         canvas.present()
     }
     Ok(())
