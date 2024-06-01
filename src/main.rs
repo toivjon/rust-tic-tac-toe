@@ -1,5 +1,5 @@
 use rust_tic_tac_toe::{event, game::Game};
-use sdl2::{event::Event, pixels, rect::Rect};
+use sdl2::{event::Event, pixels};
 
 fn main() -> Result<(), String> {
     let sdl = sdl2::init()?;
@@ -36,7 +36,7 @@ fn main() -> Result<(), String> {
 
         // Draw the grid background.
         canvas.set_draw_color(pixels::Color::RGB(255, 255, 255));
-        canvas.draw_rects(&vec![
+        canvas.draw_rects(&[
             game.cell_nw,
             game.cell_nm,
             game.cell_ne,
