@@ -6,7 +6,7 @@ fn main() -> Result<(), String> {
     let video = sdl.video()?;
     sdl.mouse().show_cursor(false);
     let window = video
-        .window("Tic-Tac-Toe", 800, 600)
+        .window("Tic-Tac-Toe", 600, 600)
         .build()
         .map_err(|e| e.to_string())?;
     let mut canvas = window.into_canvas().build().map_err(|e| e.to_string())?;

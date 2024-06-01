@@ -2,6 +2,11 @@ use sdl2::rect::Rect;
 
 use crate::event::Event;
 
+/// The width and height of a single cell in the grid.
+const CELL_SIZE: u32 = 200;
+/// The size being reserved for each cell.
+const CELL_MARGIN: i32 = CELL_SIZE as i32;
+
 /// The base structure for the whole game application.
 pub struct Game {
     pub running: bool,
@@ -25,15 +30,15 @@ impl Game {
             running: true,
             events: vec![],
             cursor: (0, 0),
-            cell_nw: Rect::new(0, 0, 100, 100),
-            cell_nm: Rect::new(100, 0, 100, 100),
-            cell_ne: Rect::new(200, 0, 100, 100),
-            cell_mw: Rect::new(0, 100, 100, 100),
-            cell_mm: Rect::new(100, 100, 100, 100),
-            cell_me: Rect::new(200, 100, 100, 100),
-            cell_sw: Rect::new(0, 200, 100, 100),
-            cell_sm: Rect::new(100, 200, 100, 100),
-            cell_se: Rect::new(200, 200, 100, 100),
+            cell_nw: Rect::new(0, 0, CELL_SIZE, CELL_SIZE),
+            cell_nm: Rect::new(CELL_MARGIN, 0, CELL_SIZE, CELL_SIZE),
+            cell_ne: Rect::new(2 * CELL_MARGIN, 0, CELL_SIZE, CELL_SIZE),
+            cell_mw: Rect::new(0, CELL_MARGIN, CELL_SIZE, CELL_SIZE),
+            cell_mm: Rect::new(CELL_MARGIN, CELL_MARGIN, CELL_SIZE, CELL_SIZE),
+            cell_me: Rect::new(2 * CELL_MARGIN, CELL_MARGIN, CELL_SIZE, CELL_SIZE),
+            cell_sw: Rect::new(0, 2 * CELL_MARGIN, CELL_SIZE, CELL_SIZE),
+            cell_sm: Rect::new(CELL_MARGIN, 2 * CELL_MARGIN, CELL_SIZE, CELL_SIZE),
+            cell_se: Rect::new(2 * CELL_MARGIN, 2 * CELL_MARGIN, CELL_SIZE, CELL_SIZE),
         }
     }
 
